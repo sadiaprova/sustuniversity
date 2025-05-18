@@ -1,0 +1,270 @@
+<?php
+$host = 'localhost';
+$user = 'root';
+$password = '';
+$db = 'sustuniversity';
+
+// Create connection
+$conn = new mysqli($host, $user, $password, $db);
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+
+// Collect data
+$full_name = $_POST['full_name'];
+$dob = $_POST['dob'];
+$gender = $_POST['gender'];
+$email = $_POST['email'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
+$ssc_school = $_POST['ssc_school'];
+$ssc_gpa = $_POST['ssc_gpa'];
+$ssc_year = $_POST['ssc_year'];
+$hsc_college = $_POST['hsc_college'];
+$hsc_gpa = $_POST['hsc_gpa'];
+$hsc_year = $_POST['hsc_year'];
+$program = $_POST['program'];
+
+$sql = "INSERT INTO applications (full_name, dob, gender, email, phone, address, ssc_school, ssc_gpa, ssc_year, hsc_college, hsc_gpa, hsc_year, program)
+VALUES ('$full_name', '$dob', '$gender', '$email', '$phone', '$address', '$ssc_school', $ssc_gpa, $ssc_year, '$hsc_college', $hsc_gpa, $hsc_year, '$program')";
+
+if ($conn->query($sql) === TRUE) {
+    echo "Application submitted successfully!";
+} else {
+    echo "Error: " . $conn->error;
+}
+
+$conn->close();
+?>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SUST University Application Form</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+  body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #4b6cb7, #182848);
+    margin: 0;
+    padding: 0;
+    color: #333;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+  }
+  .container {
+    background: #fff;
+    border-radius: 12px;
+    max-width: 600px;
+    width: 100%;
+    padding: 2rem 3rem;
+    box-shadow: 0 8px 25px rgb(0 0 0 / 0.2);
+  }
+  h1 {
+    text-align: center;
+    color: #182848;
+    margin-bottom: 1.5rem;
+  }
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    font-weight: 600;
+    margin-top: 1rem;
+    margin-bottom: 0.4rem;
+    color: #182848;
+  }
+  input[type=text],
+  input[type=email],
+  input[type=tel],
+  input[type=date],
+  select,
+  textarea {
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1.8px solid #ccc;
+    transition: border-color 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  input[type=text]:focus,
+  input[type=email]:focus,
+  input[type=tel]:focus,
+  input[type=date]:focus,
+  select:focus,
+  textarea:focus {
+    border-color: #4b6cb7;
+    outline: none;
+  }
+  .gender-group {
+    display: flex;
+    gap: 1.5rem;
+    margin-top: 0.3rem;
+  }
+  .gender-group label {
+    font-weight: 400;
+    color: #444;
+  }
+  .submit-btn {
+    margin-top: 2rem;
+    padding: 0.9rem;
+    background: #4b6cb7;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  .submit-btn:hover {
+    background: #395193;
+  }
+  .success-message {
+    margin-top: 1rem;
+    padding: 1rem;
+    background: #d4edda;
+    border: 1px solid #c3e6cb;
+    color: #155724;
+    border-radius: 8px;
+    display: none;
+    text-align: center;
+    font-weight: 600;
+  }
+  @media (max-width: 640px) {
+    .container {
+      padding: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>SUST University Application Form</h1>
+  <form action="submit.php" method="POST"></form>
+  <form id="applicationForm" novalidate>
+    <label for="fullName">Full Name *</label>
+    <input type="text" id="fullName" name="fullName" required placeholder="Your full name" />
+
+    <label for="dob">Date of Birth *</label>
+    <input type="date" id="dob" name="dob" required max="<?=new Date().toISOString().split('T')[0]?>" />
+
+    <label>Gender *</label>
+    <div class="gender-group">
+      <label><input type="radio" name="gender" value="Male" required /> Male</label>
+      <label><input type="radio" name="gender" value="Female" /> Female</label>
+      <label><input type="radio" name="gender" value="Other" /> Other</label>
+    </div>
+
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required placeholder="example@mail.com" />
+
+    <label for="phone">Phone Number *</label>
+    <input type="tel" id="phone" name="phone" required placeholder="+8801XXXXXXXXX" pattern="^\+8801[0-9]{9}$" />
+
+    <label for="address">Address</label>
+    <textarea id="address" name="address" rows="3" placeholder="Your address"></textarea>
+
+    <label for="sscSchool">SSC School Name *</label>
+    <input type="text" id="sscSchool" name="sscSchool" required placeholder="Name of your SSC school" />
+
+    <label for="sscGpa">SSC GPA/Score *</label>
+    <input type="text" id="sscGpa" name="sscGpa" required placeholder="e.g., 4.80" pattern="^[0-9.]+$" />
+
+    <label for="sscYear">SSC Passing Year *</label>
+    <input type="text" id="sscYear" name="sscYear" required placeholder="e.g., 2018" pattern="^[0-9]{4}$" />
+
+    <label for="hscSchool">HSC College Name *</label>
+    <input type="text" id="hscSchool" name="hscSchool" required placeholder="Name of your HSC college" />
+
+    <label for="hscGpa">HSC GPA/Score *</label>
+    <input type="text" id="hscGpa" name="hscGpa" required placeholder="e.g., 4.90" pattern="^[0-9.]+$" />
+
+    <label for="hscYear">HSC Passing Year *</label>
+    <input type="text" id="hscYear" name="hscYear" required placeholder="e.g., 2020" pattern="^[0-9]{4}$" />
+
+    <label for="program">Program Applying For *</label>
+    <select id="program" name="program" required>
+      <option value="" disabled selected>Select your program</option>
+      <option value="CSE">Computer Science and Engineering (CSE)</option>
+      <option value="EEE">Electrical and Electronic Engineering (EEE)</option>
+      <option value="MATH">Mathematics</option>
+      <option value="CHEM">Chemistry</option>
+      <option value="PHYS">Physics</option>
+      <option value="BBA">Business Administration (BBA)</option>
+      <option value="ENG">English</option>
+      <!-- more programs can be added -->
+    </select>
+
+    <button type="submit" class="submit-btn">Submit Application</button>
+    <div id="successMessage" class="success-message">Your application has been submitted successfully!</div>
+  </form>
+</div>
+
+<script>
+  document.getElementById('applicationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+
+    // Simple validation check
+    if (!this.checkValidity()) {
+      this.reportValidity();
+      return;
+    }
+
+    // Additional pattern validations for phone and years
+    const phoneInput = this.phone;
+    const sscYear = this.sscYear;
+    const hscYear = this.hscYear;
+    const sscGpa = this.sscGpa;
+    const hscGpa = this.hscGpa;
+
+    const phonePattern = /^\+8801[0-9]{9}$/;
+    if (!phonePattern.test(phoneInput.value)) {
+      alert('Please enter a valid phone number in +8801XXXXXXXXX format.');
+      phoneInput.focus();
+      return;
+    }
+
+    const yearPattern = /^[0-9]{4}$/;
+    if (!yearPattern.test(sscYear.value)) {
+      alert('Please enter a valid 4-digit year for SSC Passing Year.');
+      sscYear.focus();
+      return;
+    }
+    if (!yearPattern.test(hscYear.value)) {
+      alert('Please enter a valid 4-digit year for HSC Passing Year.');
+      hscYear.focus();
+      return;
+    }
+
+    const gpaPattern = /^[0-9.]+$/;
+    if (!gpaPattern.test(sscGpa.value)) {
+      alert('Please enter a valid GPA/Score for SSC.');
+      sscGpa.focus();
+      return;
+    }
+    if (!gpaPattern.test(hscGpa.value)) {
+      alert('Please enter a valid GPA/Score for HSC.');
+      hscGpa.focus();
+      return;
+    }
+
+    // If form is valid, show success message
+    this.reset();
+    const msg = document.getElementById('successMessage');
+    msg.style.display = 'block';
+    setTimeout(() => { msg.style.display = 'none'; }, 6000);
+  });
+</script>
+</body>
+</html>
+

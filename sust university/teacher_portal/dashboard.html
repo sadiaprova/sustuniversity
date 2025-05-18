@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Teacher Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadTeacherData()">
+    <div class="dashboard">
+        <h2>Welcome, Teacher ID: <span id="teacherIdDisplay"></span></h2>
+        <div class="card"><strong>Assigned Courses:</strong> <span id="courses"></span></div>
+        <div class="card"><strong>Upload Study Material:</strong><br>
+            <input type="file" id="materialUpload"><br><br>
+            <button onclick="uploadMaterial()">Upload</button>
+        </div>
+        <div class="card"><strong>Mark Attendance:</strong><br>
+            <input type="text" id="courseName" placeholder="Course Name">
+            <input type="text" id="attendanceData" placeholder="Attendance Details">
+            <button onclick="markAttendance()">Submit</button>
+        </div>
+        <div class="card" id="messageBox"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

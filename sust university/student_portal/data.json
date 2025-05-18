@@ -1,0 +1,9 @@
+{
+    "123": {
+        "attendance": "92%",
+        "courses": ["Math", "Physics", "CS101"],
+        "teachers": ["Dr. Rahman", "Prof. Ali", "Ms. Nahar"],
+        "fees": "$500",
+        "result": "CGPA 3.75"
+    }
+}

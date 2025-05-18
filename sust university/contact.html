@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact Us - SUST University</title>
+  <style>
+    /* Reset and basics */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f5f8fd;
+      color: #0a2e66;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #0a2e66;
+      margin-bottom: 10px;
+    }
+    /* Container */
+    .container {
+      background: #ffffff;
+      max-width: 900px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 8px 25px rgba(10, 46, 102, 0.1);
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 30px;
+      overflow: hidden;
+    }
+    /* Left side - contact info */
+    .contact-info {
+      background: #0a2e66;
+      color: #fff;
+      flex: 1 1 300px;
+      padding: 40px 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .contact-info h2 {
+      color: #54a0ff;
+      margin-bottom: 30px;
+      font-weight: 700;
+      font-size: 1.8rem;
+    }
+    .info-item {
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+    .info-item svg {
+      width: 24px;
+      height: 24px;
+      margin-right: 15px;
+      fill: #54a0ff;
+      flex-shrink: 0;
+    }
+    .info-item span {
+      font-size: 1rem;
+      font-weight: 500;
+      user-select: text;
+    }
+
+    /* Right side - form */
+    .contact-form {
+      flex: 1 1 400px;
+      padding: 40px 30px;
+    }
+    .contact-form h2 {
+      font-weight: 700;
+      margin-bottom: 25px;
+      font-size: 1.8rem;
+      color: #0a2e66;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-bottom: 6px;
+      font-weight: 600;
+      color: #0a2e66;
+    }
+    input, textarea {
+      padding: 12px 15px;
+      margin-bottom: 20px;
+      border: 2px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.3s ease;
+      resize: none;
+      font-family: inherit;
+    }
+    input:focus, textarea:focus {
+      border-color: #0a2e66;
+      outline: none;
+    }
+    textarea {
+      min-height: 120px;
+    }
+    button {
+      background: #0a2e66;
+      color: #fff;
+      border: none;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #054399;
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container {
+        flex-direction: column;
+      }
+      .contact-info, .contact-form {
+        flex: 1 1 100%;
+        padding: 30px 20px;
+      }
+    }
+    .error-message {
+      color: #d23f44;
+      font-size: 0.9rem;
+      margin-top: -15px;
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    footer {
+      margin-top: auto;
+      padding: 15px 10px;
+      font-size: 0.9rem;
+      color: #777;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shahjalal University of Science and Technology</h1>
+  <div class="container" role="main">
+    <section class="contact-info" aria-label="Contact Information">
+      <h2>Contact Information</h2>
+      <div class="info-item">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5S10.62 6.5 12 6.5s2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        <span>shylet, Bangladesh</span>
+      </div>
+      <div class="info-item">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M6.62 10.79a15.05 15.05 0 006.59 6.59l2.2-2.2a1 1 0 011.11-.21c1.21.49 2.53.76 3.88.76a1 1 0 011 1v3.5a1 1 0 01-1 1C10.29 21 3 13.71 3 5.5A1 1 0 014 4.5h3.5a1 1 0 011 1c0 1.35.27 2.67.76 3.88a1 1 0 01-.21 1.11l-2.43 2.3z"/></svg>
+        <span>+880 821 713000 Ext: 9320</span>
+      </div>
+      <div class="info-item">
+        <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12a2 2 0 002 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+        <span>info@sust.edu</span>
+      </div>
+    </section>
+    <section class="contact-form" aria-label="Contact Form">
+      <h2>Get in Touch</h2>
+      <form id="contactForm" novalidate>
+        <label for="name">Name<span aria-hidden="true" style="color:#d23f44;"> *</span></label>
+        <input type="text" id="name" name="name" placeholder="Your full name" required aria-describedby="nameError" />
+        <div id="nameError" class="error-message" aria-live="polite"></div>
+
+        <label for="email">Email<span aria-hidden="true" style="color:#d23f44;"> *</span></label>
+        <input type="email" id="email" name="email" placeholder="Your email address" required aria-describedby="emailError" />
+        <div id="emailError" class="error-message" aria-live="polite"></div>
+
+        <label for="subject">Subject<span aria-hidden="true" style="color:#d23f44;"> *</span></label>
+        <input type="text" id="subject" name="subject" placeholder="Subject of your message" required aria-describedby="subjectError" />
+        <div id="subjectError" class="error-message" aria-live="polite"></div>
+
+        <label for="message">Message<span aria-hidden="true" style="color:#d23f44;"> *</span></label>
+        <textarea id="message" name="message" placeholder="Write your message here" required aria-describedby="messageError"></textarea>
+        <div id="messageError" class="error-message" aria-live="polite"></div>
+
+        <button type="submit" aria-label="Send message">Send Message</button>
+      </form>
+    </section>
+  </div>
+  <footer>
+    &copy; 2024 Shahjalal University of Science and Technology. All rights reserved.
+  </footer>
+
+  <script>
+    // Basic form validation and submission handler with feedback
+    const form = document.getElementById('contactForm');
+
+    function validateEmail(email) {
+      // Simple email regex
+      const re = /^[\\w-.]+@([\\w-]+\\.)+[\\w-]{2,4}$/;
+      return re.test(String(email).toLowerCase());
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let isValid = true;
+
+      // Clear previous errors
+      ['name', 'email', 'subject', 'message'].forEach(field => {
+        document.getElementById(field + 'Error').textContent = '';
+      });
+
+      // Validate name
+      const name = form.name.value.trim();
+      if (name.length < 2) {
+        isValid = false;
+        document.getElementById('nameError').textContent = 'Please enter your name (at least 2 characters).';
+      }
+
+      // Validate email
+      const email = form.email.value.trim();
+      if (!validateEmail(email)) {
+        isValid = false;
+        document.getElementById('emailError').textContent = 'Please enter a valid email address.';
+      }
+
+      // Validate subject
+      const subject = form.subject.value.trim();
+      if (subject.length < 3) {
+        isValid = false;
+        document.getElementById('subjectError').textContent = 'Please enter a subject (at least 3 characters).';
+      }
+
+      // Validate message
+      const message = form.message.value.trim();
+      if (message.length < 10) {
+        isValid = false;
+        document.getElementById('messageError').textContent = 'Please enter a message (at least 10 characters).';
+      }
+
+      if (isValid) {
+        alert('Thank you for contacting SUST! Your message has been sent.');
+        form.reset();
+      }
+    });
+  </script>
+</body>
+</html>
+
